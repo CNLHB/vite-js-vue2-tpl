@@ -14,9 +14,8 @@
     "lint": "eslint src/ --ext .js,.ts,.vue",
     "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
     "format": "prettier --write src/",
-    "ci": "git add . && git-cz",
-    "cz": "git-cz",
-    "changelog": "conventional-changelog -p cz-config.cjs -i CHANGELOG.md -s -r 0"
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
@@ -46,6 +45,8 @@
     "commitizen": "^4.3.1",
     "commitlint-config-cz": "^0.13.3",
     "commitlint-config-git-commit-emoji": "^1.0.0",
+    "conventional-changelog": "^7.0.2",
+    "conventional-changelog-cli": "^5.0.0",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^7.4.0",

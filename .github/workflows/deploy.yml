@@ -18,9 +18,9 @@ jobs:
 
       # 依赖安装与构建
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Build project
-        run: pnpm run build:docs
+        run: npm run build:docs
 
       # 部署到 GitHub Pages（示例）
       - name: Deploy to Pages

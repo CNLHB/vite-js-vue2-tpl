@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'pnpm' # 使用 pnpm 缓存
+          cache: 'npm' # 使用 npm 缓存
 
       # 依赖安装与构建
       - name: Install dependencies

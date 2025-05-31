@@ -1,0 +1,31 @@
+name: Vite CI/CD
+
+on:
+  push:
+    branches: [main] # 触发分支
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm' # 使用 pnpm 缓存
+
+      # 依赖安装与构建
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build project
+        run: pnpm run build:docs
+
+      # 部署到 GitHub Pages（示例）
+      - name: Deploy to Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist # Vite 默认输出目录
+          clean: true

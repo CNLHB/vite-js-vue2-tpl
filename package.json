@@ -14,14 +14,13 @@
     "lint": "eslint src/ --ext .js,.ts,.vue",
     "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
     "format": "prettier --write src/",
-    "commit": "git-cz",
+    "cz": "git-cz",
     "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0"
   },
   "lint-staged": {
     "src/**/*.{js,vue}": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "files": [

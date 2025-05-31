@@ -2,7 +2,7 @@ name: Vite CI/CD
 
 on:
   push:
-    branches: [main] # 触发分支
+    branches: ['gh-pages'] # 触发分支
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -27,5 +27,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist # Vite 默认输出目录
+          folder: demo # Vite 默认输出目录
           clean: true

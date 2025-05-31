@@ -60,6 +60,6 @@ module.exports = {
   },
   allowCustomScopes: true,
   // 跳过问题 'body', 'footer'
-  skipQuestions: [],
+  skipQuestions: ['body'],
   subjectLimit: 72
 };

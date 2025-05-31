@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue2';
-import { dirname, resolve } from 'node:path';
+// import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import eslintPlugin from 'vite-plugin-eslint';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+// const __dirname = dirname(fileURLToPath(import.meta.url));
+console.log(process.env.NODE_ENV); // "123"
 export default defineConfig({
-  base: 'vite-js-vue2-tpl',
+  base: '/vite-js-vue2-tpl',
   plugins: [
     vue(),
     eslintPlugin({
@@ -17,12 +17,12 @@ export default defineConfig({
     })
   ],
   build: {
-    lib: {
-      entry: resolve(__dirname, 'src/index.js'),
-      name: 'index',
-      // 将添加适当的扩展名后缀
-      fileName: 'index'
-    },
+    // lib: {
+    //   entry: resolve(__dirname, 'src/index.js'),
+    //   name: 'index',
+    //   // 将添加适当的扩展名后缀
+    //   fileName: 'index'
+    // },
     rollupOptions: {
       // 确保外部化处理那些
       // 你不想打包进库的依赖

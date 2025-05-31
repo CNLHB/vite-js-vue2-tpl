@@ -16,11 +16,21 @@ jobs:
           node-version: '18'
           cache: 'pnpm' # 使用 npm 缓存
 
-      # 依赖安装与构建
       - name: Install pnpm
-        run: npm install -g pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8 # 指定pnpm版本
+      - name: Restore pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --prefer-offline --no-audit
+
       - name: Build project
         run: pnpm run build:docs
 
